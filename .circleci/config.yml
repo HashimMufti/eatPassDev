@@ -1,5 +1,5 @@
 version: 2.1
-description: "Pipeline for Kmart Coding Challenge"
+description: "Pipeline for eatPassDev"
 
 executors:
     setup_python:
