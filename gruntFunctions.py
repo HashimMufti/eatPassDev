@@ -1,2 +1,3 @@
 def validate(requestJson):
-    return None
+    print(requestJson)
+    return requestJson

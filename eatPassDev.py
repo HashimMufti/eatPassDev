@@ -1,7 +1,10 @@
 # eatPassDev-CLI runs from here
 import config
 import requests
-import json
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger(__name__)
 
 
 def findAllRestaurants():
@@ -15,10 +18,12 @@ def findZomataoRestaurants():
 
 
 def findGoogleLocation(location='test'):
-    respone = requests.get(config.googleAutoCompleteURL,
-                           params={"input": location,
-                                   "key": config.googleApiKey})
-    return(respone.json())
+    log.debug("Location: " + location)
+    response = requests.get(config.googleAutoCompleteURL,
+                            params={"input": location,
+                                    "key": config.googleApiKey})
+    log.debug("Response URL: " + response.url)
+    return(response)
 
 
 def findGoogleRestaurants():
