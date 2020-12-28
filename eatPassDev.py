@@ -1,5 +1,7 @@
 # eatPassDev-CLI runs from here
-# import config
+import config
+import requests
+import json
 
 
 def findAllRestaurants():
@@ -10,6 +12,13 @@ def findAllRestaurants():
 def findZomataoRestaurants():
     # Find all restaraunts in area according to Zomato
     pass
+
+
+def findGoogleLocation(location='test'):
+    respone = requests.get(config.googleAutoCompleteURL,
+                           params={"input": location,
+                                   "key": config.googleApiKey})
+    return(respone.json())
 
 
 def findGoogleRestaurants():
